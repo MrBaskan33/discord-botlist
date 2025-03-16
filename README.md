@@ -11,7 +11,7 @@ ___
 - [x] Dm takip sistemi.
 - [x] Eklendim-atıldım, komut, hata log sistemleri.
 - [x] Daha okunaklı ve düzenli kod satırları ve dosyaları.
-- [x] Güzel görünümlü memüler.
+- [x] Güzel görünümlü menüler.
 - [x] Ve daha fazlası...
 
 ___
