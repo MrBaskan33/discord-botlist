@@ -1,6 +1,7 @@
 const Discord = require('discord.js')
 const fs = require("fs")
 const fetch = require("node-fetch")
+const axios = require("axios")
 const { JsonDatabase } = require("wio.db")
 const db = new JsonDatabase({databasePath: `./bot/database.json`})
 const emojis = require("./bot/emojis.json")
@@ -70,7 +71,7 @@ client.on("interactionCreate", async interaction => {
 client.on("interactionCreate", async interaction => {
   if(interaction.type !== Discord.InteractionType.ModalSubmit) return
   if(interaction.customId === "botaddform") {
-    await botAddModal(client, interaction, locales, settings, emojis, db, fetch)
+    await botAddModal(client, interaction, locales, settings, emojis, db, fetch, axios)
   }
 })
 //--/ Bot Add Modal \--\\
