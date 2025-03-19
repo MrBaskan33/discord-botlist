@@ -25,4 +25,4 @@ ___
 
 ___
 
-[![Profil](https://lanyard.cnrad.dev/api/873182701061021696)](https://discord.com/users/873182701061021696)
+[![Profile](https://lanyard.cnrad.dev/api/873182701061021696)](https://discord.com/users/873182701061021696)
