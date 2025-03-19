@@ -1,6 +1,6 @@
 {
   "bot-commands": "Bot komutları",
-  "commands": "- **/yardım** `Botun yardım menüsünü gösterir.`\n- **/linkler** `Botun linklerini gösterir.`\n- **/ekleme-kanalı** `Bot ekleme kanalını ayarlar/sıfırlar.`\n- **/log-kanalı** `Log kanalını ayarlar/sıfırlar.`\n- **/yetkili-kanalı** `Yetkili kanalını ayarlar/sıfırlar.`\n- **/bot-rolü** `Bot rolünü ayarlar/sıfırlar.`\n- **/yetkili-rolü** `Yetkili rolünü ayarlar.`\n- **/developer-rolü** `Developer rolünü ayarlar/sıfırlar.`\n- **/dm-takip** `Dm takip sistemini açar/kapatır.`\n- **/bot-sil** `Sistemde bulunan botun verilerini siler.`\n- **/botlist ayarlar** `Botlist sistemi ayarlarını gösterir.`\n- **/botlist sıfırla** `Ayarlı olan botlist sistemlerini sıfırlar.`\n- **/botlist aç** `Botlist sistemini açar.`\n- **/botlist kapat** `Botlist sistemini kapatır.`",
+  "commands": "- **/yardım** `Botun yardım menüsünü gösterir.`\n- **/linkler** `Botun linklerini gösterir.`\n- **/ekleme-kanalı** `Bot ekleme kanalını ayarlar/sıfırlar.`\n- **/log-kanalı** `Log kanalını ayarlar/sıfırlar.`\n- **/yetkili-kanalı** `Yetkili kanalını ayarlar/sıfırlar.`\n- **/bot-rolü** `Bot rolünü ayarlar/sıfırlar.`\n- **/yetkili-rolü** `Yetkili rolünü ayarlar.`\n- **/developer-rolü** `Developer rolünü ayarlar/sıfırlar.`\n- **/dm-takip** `Dm takip sistemini açar/kapatır.`\n- **/sunucu-şartı** `Bot eklemek için minimum sunucu şartı ekler.`\n- **/topgg-şartı** `Bot eklemek için topgg şartını açar/kapatır.`\n- **/bot-sil** `Sistemde bulunan botun verilerini siler.`\n- **/botlist ayarlar** `Botlist sistemi ayarlarını gösterir.`\n- **/botlist sıfırla** `Ayarlı olan botlist sistemlerini sıfırlar.`\n- **/botlist aç** `Botlist sistemini açar.`\n- **/botlist kapat** `Botlist sistemini kapatır.`",
   "already-channel": "Kanal zaten ayarlanmış. (<#{channel}>)",
   "channel-set": "Kanal başarıyla (<#{channel}>) olarak ayarlandı.",
   "limit-set": "Bot ekleme sunucu şartı başarıyla (**{limit}**) olarak ayarlandı.",
@@ -20,6 +20,10 @@
   "system-set": "Sistem başarıyla açıldı.",
   "no-system": "Sistem açık değil.",
   "system-reset": "Sistem başarıyla kapatıldı.",
+  "already-condition": "Topgg şartı zaten açık.",
+  "condition-set": "Topgg şartı başarıyla açıldı.",
+  "no-condition": "Topgg şartı açık değil.",
+  "condition-reset": "Topgg şartı başarıyla kapatıldı.",
   "already-role": "Rol zaten ayarlanmış. (<@&{role}>)",
   "role-set": "Rol başarıyla (<@&{role}>) olarak ayarlandı.",
   "no-role": "Rol zaten ayarlı değil.",
