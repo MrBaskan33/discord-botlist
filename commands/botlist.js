@@ -74,7 +74,8 @@ module.exports = {
     const dmFollow = db.fetch(`${interaction.guild.id}.dmFollow`)
     const botlistSystem = db.fetch(`${interaction.guild.id}.botlistSystem`)
     const addMessage = db.fetch(`${interaction.guild.id}.addMessage`)
-    
+    const serverLimit = db.fetch(`${interaction.guild.id}.serverLimit`)
+        
     switch(option) {
       case "settings": {
         
@@ -133,7 +134,14 @@ module.exports = {
         } else {
           bs = `${emojis["check"]}`
         } 
-        
+
+        let sl
+        if(!serverLimit) {
+          sl = `**0**`
+        } else {
+          sl = `**${serverLimit}**`
+        } 
+    
         const settings = new Discord.EmbedBuilder()
           .setColor("Blurple")
           .setAuthor({name: interaction.user.username, iconURL: interaction.user.avatarURL()}) 
@@ -167,6 +175,10 @@ module.exports = {
               value: `${df}`
             },
             {
+              name: `${(locales[interaction.locale] ?? locales[settings.defaultLang])["server-limit"]}`,
+              value: `${sl}`
+            },
+            {
               name: `${(locales[interaction.locale] ?? locales[settings.defaultLang])["botlist-system"]}`,
               value: `${bs}`
             })
@@ -198,6 +210,9 @@ module.exports = {
         } 
         if(dmFollow) {
           db.delete(`${interaction.guild.id}.dmFollow`)
+        } 
+        if(serverLimit) {
+          db.delete(`${interaction.guild.id}.serverLimit`)
         } 
         if(botlistSystem) {
           db.delete(`${interaction.guild.id}.botlistSystem`)
