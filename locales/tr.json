@@ -66,5 +66,7 @@
   "bot-banned-dm3": "(**{guild}**} Adlı sunucuya eklediğiniz bot sunucuda olmadığınız için yasaklandı.",
   "limit-set": "Bot ekleme sunucu şartı başarıyla (**{limit}**) olarak ayarlandı.",
   "server-limit": "Bot eklemek için sunucu şartı",
-  "bot-count": "Botun sunucu sayısı"
+  "bot-count": "Botun sunucu sayısı",
+  "not-topgg": "Botu eklemek için topgg onayının olması gerekli.",
+  "not-enough": "Botu eklemek için en az **{limit}** sunucuda bulunması gerekiyor. Botunun bulunduğu sunucu sayısı: (**${server}**)"
 }
