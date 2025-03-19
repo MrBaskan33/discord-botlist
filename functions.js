@@ -121,7 +121,7 @@ async function botAddModal(client, interaction, locales, settings, emojis, db, f
        
   }
 
-  if(topggRequired && responseTopgg === false) {
+  if(topggRequired === true && responseTopgg === false) {
     
     const notTopgg = new Discord.EmbedBuilder()
       .setColor("Red")
