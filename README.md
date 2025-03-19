@@ -10,6 +10,7 @@ ___
 - [x] Otomatik onay, ban sistemi.
 - [x] Dm takip sistemi.
 - [x] Botun top.gg de bulunup bulunmadığı kontrolü.
+- [x] Sunucu şartı sistemi.
 - [x] Eklendim-atıldım, komut, hata log sistemleri.
 - [x] Daha okunaklı ve düzenli kod satırları ve dosyaları.
 - [x] Güzel görünümlü menüler.
