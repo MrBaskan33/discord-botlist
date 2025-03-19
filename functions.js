@@ -36,6 +36,7 @@ async function botAddModal(client, interaction, locales, settings, emojis, db, f
   const botlistSystem = db.fetch(`${interaction.guild.id}.botlistSystem`)
   const addMessage= db.fetch(`${interaction.guild.id}.addMessage`)
   const serverLimit = db.fetch(`${interaction.guild.id}.serverLimit`) || 0
+  const topggRequired = db.fetch(`${interaction.guild.id}.topggRequired`) || false
   const botId = interaction.fields.getTextInputValue("botid")
   const bot =  db.fetch(`${interaction.guild.id}.${botId}`)
       
@@ -117,6 +118,18 @@ async function botAddModal(client, interaction, locales, settings, emojis, db, f
       .setFooter({text: client.user.username, iconURL: client.user.avatarURL()}) 
       .setTimestamp()
     return await interaction.followUp({embeds: [notEnoughServer], ephemeral: true})
+       
+  }
+
+  if(topggRequired && responseTopgg === false) {
+    
+    const notTopgg = new Discord.EmbedBuilder()
+      .setColor("Red")
+      .setAuthor({name: interaction.user.username, iconURL: interaction.user.avatarURL()}) 
+      .setDescription(`${emojis["cross"]} ${(locales[interaction.locale] ?? locales[settings.defaultLang])["not-topgg"]}`)
+      .setFooter({text: client.user.username, iconURL: client.user.avatarURL()}) 
+      .setTimestamp()
+    return await interaction.followUp({embeds: [notTopgg], ephemeral: true})
        
   }
 	
