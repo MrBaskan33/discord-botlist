@@ -66,7 +66,7 @@ async function botAddModal(client, interaction, locales, settings, emojis, db, f
   let discordBot = null
   try {
     
-		discordBot = await client.users.fetch(botId)
+    discordBot = await client.users.fetch(botId)
 
   } catch {
      
@@ -103,12 +103,27 @@ async function botAddModal(client, interaction, locales, settings, emojis, db, f
     return await interaction.followUp({embeds: [botAlready], ephemeral: true})
        
   }
-  
+
+  const response = await axios(`http://158.69.118.209:20122/api/${botId}`)
+  const serverCount = response.data.serverCount
+	
   const apiKey = settings.topggApiKey
   const responseTopgg = await fetch(`https://top.gg/api/bots/${botId}`, {
     headers: { Authorization: apiKey },
   })
-  
+
+  if(serverCount < serverLimit) {
+    
+    const notEnoughServer = new Discord.EmbedBuilder()
+      .setColor("Red")
+      .setAuthor({name: interaction.user.username, iconURL: interaction.user.avatarURL()}) 
+      .setDescription(`${emojis["cross"]} ${(locales[interaction.locale] ?? locales[settings.defaultLang])["not-enough"].replace(/\{server}/g, serverCount).replace(/\{limit}/g, serverLimit)}`)
+      .setFooter({text: client.user.username, iconURL: client.user.avatarURL()}) 
+      .setTimestamp()
+    return await interaction.followUp({embeds: [notEnoughServer], ephemeral: true})
+       
+  }
+	
   db.add(`${interaction.guild.id}.queue`, 1)
   db.set(`${interaction.guild.id}.${botId}.owner`, interaction.user.id)
   db.set(`${interaction.guild.id}.${botId}.status`, "Waiting")
@@ -136,6 +151,10 @@ async function botAddModal(client, interaction, locales, settings, emojis, db, f
       {
         name: `${(locales[interaction.locale] ?? locales[settings.defaultLang])["bot-owner"]}`,
         value: `- <@${interaction.user.id}>`
+      },
+      {
+        name: `${(locales[interaction.locale] ?? locales[settings.defaultLang])["bot-count"]}`,
+        value: `- \`${serverCount}\``
       },
       {
         name: `${(locales[interaction.locale] ?? locales[settings.defaultLang])["bot-topgg"]}`,
@@ -178,6 +197,10 @@ async function botAddModal(client, interaction, locales, settings, emojis, db, f
       {
         name: `${(locales[interaction.locale] ?? locales[settings.defaultLang])["bot-owner"]}`,
         value: `- <@${interaction.user.id}>`
+      },
+      {
+        name: `${(locales[interaction.locale] ?? locales[settings.defaultLang])["bot-count"]}`,
+        value: `- \`${serverCount}\``
       },
       {
         name: `${(locales[interaction.locale] ?? locales[settings.defaultLang])["bot-topgg"]}`,
