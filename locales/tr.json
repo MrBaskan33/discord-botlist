@@ -63,5 +63,8 @@
   "bot-approved-dm": "(**{guild}**) Adlı sunucuya eklenen botunuz onaylanmıştır.",
   "bot-banned-dm1": "(**{guild}**} Adlı sunucuya eklenen botunuz sunucuda olmadığınız için yasaklandı.",
   "bot-banned-dm2": "(**{guild}**) Adlı sunucudan ayrıldığınız için botunuz yasaklandı.",
-  "bot-banned-dm3": "(**{guild}**} Adlı sunucuya eklediğiniz bot sunucuda olmadığınız için yasaklandı."
+  "bot-banned-dm3": "(**{guild}**} Adlı sunucuya eklediğiniz bot sunucuda olmadığınız için yasaklandı.",
+  "limit-set": "Bot ekleme sunucu şartı başarıyla (**{limit}**) olarak ayarlandı.",
+  "server-limit": "Bot eklemek için sunucu şartı",
+  "bot-count": "Botun sunucu sayısı"
 }
