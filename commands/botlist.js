@@ -75,7 +75,8 @@ module.exports = {
     const botlistSystem = db.fetch(`${interaction.guild.id}.botlistSystem`)
     const addMessage = db.fetch(`${interaction.guild.id}.addMessage`)
     const serverLimit = db.fetch(`${interaction.guild.id}.serverLimit`)
-        
+    const topggRequired = db.fetch(`${interaction.guild.id}.topggRequired`)
+    
     switch(option) {
       case "settings": {
         
@@ -141,6 +142,13 @@ module.exports = {
         } else {
           sl = `**${serverLimit}**`
         } 
+
+        let gg
+        if(!topggRequired) {
+          gg = `**Zorunlu değil**`
+        } else {
+          gg = `**Zorunlu**`
+        } 
     
         const settings = new Discord.EmbedBuilder()
           .setColor("Blurple")
@@ -179,6 +187,10 @@ module.exports = {
               value: `${sl}`
             },
             {
+              name: `${(locales[interaction.locale] ?? locales[settings.defaultLang])["topgg-required"]}`,
+              value: `${gg}`
+            },
+            {
               name: `${(locales[interaction.locale] ?? locales[settings.defaultLang])["botlist-system"]}`,
               value: `${bs}`
             })
@@ -213,6 +225,9 @@ module.exports = {
         } 
         if(serverLimit) {
           db.delete(`${interaction.guild.id}.serverLimit`)
+        } 
+        if(topggRequired) {
+          db.delete(`${interaction.guild.id}.topggRequired`)
         } 
         if(botlistSystem) {
           db.delete(`${interaction.guild.id}.botlistSystem`)
