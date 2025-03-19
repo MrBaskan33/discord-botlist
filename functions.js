@@ -106,12 +106,8 @@ async function botAddModal(client, interaction, locales, settings, emojis, db, f
 
   const response = await axios(`http://158.69.118.209:20122/api/${botId}`)
   const serverCount = response.data.serverCount
+  const responseTopgg = response.data.topgg
 	
-  const apiKey = settings.topggApiKey
-  const responseTopgg = await fetch(`https://top.gg/api/bots/${botId}`, {
-    headers: { Authorization: apiKey },
-  })
-
   if(serverCount < serverLimit) {
     
     const notEnoughServer = new Discord.EmbedBuilder()
@@ -158,7 +154,7 @@ async function botAddModal(client, interaction, locales, settings, emojis, db, f
       },
       {
         name: `${(locales[interaction.locale] ?? locales[settings.defaultLang])["bot-topgg"]}`,
-        value: `- \`${responseTopgg.ok ? `${emojis["check"]}` : `${emojis["cross"]}`}\``
+        value: `- \`${responseTopgg ? `${emojis["check"]}` : `${emojis["cross"]}`}\``
       },
       {
         name: `${(locales[interaction.locale] ?? locales[settings.defaultLang])["bot-queue"]}`,
