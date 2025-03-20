@@ -111,25 +111,25 @@ antiCrash(client, logs)
 //--/ Anti Crash \--\\
 
 //--/ Added Log \--\\
-client.on('guildCreate', async guild => {
+client.on("guildCreate", async guild => {
   await addedLog(client, logs, guild)
 })
 //--/ Added Log \--\\
 
 //--/ Removed Log \--\\
-client.on('guildDelete', async guild => {
+client.on("guildDelete", async guild => {
   await removedLog(client, logs, guild, db)
 })
 //--/ Removed Log \--\\
 
 //--/ Auto Reset Role \--\\
-client.on('roleDelete', async role => {
+client.on("roleDelete", async role => {
   await autoRoleReset(role, db)
 })
 //--/ Auto Reset Role \--\\
 
 //--/ Auto Reset Channel \--\\
-client.on('annelDelete', async channel => {
+client.on("channelDelete", async channel => {
   await autoChannelReset(channel, db)
 })
 //--/ Auto Reset Channel \--\\
