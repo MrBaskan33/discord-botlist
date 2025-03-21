@@ -22,7 +22,7 @@ async function showBotAddModal(interaction, locales, settings) {
 //--/ Show Bot Add Modal \--\\
 
 //--/ Bot Add Modal \--\\
-async function botAddModal(client, interaction, locales, settings, emojis, db, fetch) {
+async function botAddModal(client, interaction, locales, settings, emojis, db, fetch, axios) {
   
   await interaction.deferUpdate()
   
@@ -707,11 +707,11 @@ async function addedLog(client, logs, guild) {
         value: `- **${client.users.cache.get(guild.ownerId).username}** \`(${guild.ownerId})\``
       },
       {
-        name: `Toplam sunucu say谋s谋`,
+        name: `Toplam sunucu sayısı`,
         value: `- **${client.guilds.cache.size}**`
       },
       {
-        name: `Sunucudaki kullan谋c谋 say谋s谋`,
+        name: `Sunucudaki kullanıcı sayısı`,
         value: `- **${guild.memberCount}**`
       })
    .setFooter({text: client.user.username, iconURL: client.user.avatarURL()}) 
@@ -727,7 +727,7 @@ async function removedLog(client, logs, guild, db) {
   const removed = new Discord.EmbedBuilder()
     .setColor("Red")
     .setAuthor({name: guild.name, iconURL: guild.iconURL()}) 
-    .setDescription(`> **Bir sunucudan at谋ld谋m.**`)
+    .setDescription(`> **Bir sunucudan atıldım.**`)
     .addFields(
       {
         name: `Sunucu bilgileri`,
@@ -738,11 +738,11 @@ async function removedLog(client, logs, guild, db) {
         value: `- **${client.users.cache.get(guild.ownerId).username}** \`(${guild.ownerId})\``
       },
       {
-        name: `Toplam sunucu say谋s谋`,
+        name: `Toplam sunucu sayısı`,
         value: `- **${client.guilds.cache.size}**`
       },
       {
-        name: `Sunucudaki kullan谋c谋 say谋s谋`,
+        name: `Sunucudaki kullanıcı sayısı`,
         value: `- **${guild.memberCount}**`
       })
    .setFooter({text: client.user.username, iconURL: client.user.avatarURL()}) 
@@ -766,11 +766,11 @@ async function commandLog(client, interaction, logs, command) {
         value: `- **${interaction.user.username}** \`(${interaction.user.id})\``
       },
       {
-        name: `Kullan谋lan sunucu`,
+        name: `Kullanılan sunucu`,
         value: `- **${interaction.guild.name}** \`(${interaction.guild.id})\``
       },
       {
-        name: `Kullan谋lan komut`,
+        name: `Kullanılan komut`,
         value: `- **${command.data.name}**`
       })
     .setFooter({text: client.user.username, iconURL: client.user.avatarURL()}) 
