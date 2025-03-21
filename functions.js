@@ -449,7 +449,7 @@ async function botApproveButton(client, interaction, locales, settings, emojis, 
       const botBannedDm3 = new Discord.EmbedBuilder()
         .setColor("Red")
         .setAuthor({name: owner.username, iconURL: owner.avatarURL()}) 
-        .setDescription(`${emojis["cross"]} ${(locales[owner.locale] ?? locales[settings.defaultLang])["bot-banned-dm3"].replace(/\{guild}/g, interaction.guild.name)}`)
+        .setDescription(`${emojis["check"]} ${(locales[owner.locale] ?? locales[settings.defaultLang])["bot-banned-dm3"].replace(/\{guild}/g, interaction.guild.name)}`)
         .setFooter({text: client.user.username, iconURL: client.user.avatarURL()}) 
         .setTimestamp()
       await owner.send({embeds: [botBannedDm3]})
