@@ -50,7 +50,7 @@ setTimeout(async () => {
 }, 500)
 
 //--/ Show Bot Add Modal \--\\
-client.on("interactioneate", async interaction => {
+client.on("interactionCreate", async interaction => {
   if(!interaction.isButton()) return
   if(interaction.customId === "bot-add") {
     await showBotAddModal(interaction, locales, settings)
