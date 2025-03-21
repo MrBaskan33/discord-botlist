@@ -89,7 +89,7 @@ client.on("interactionCreate", async interaction => {
 client.on("interactionCreate", async interaction => {
   if(!interaction.isButton()) return
   if(interaction.customId === "bot-approve") {
-    await showBotRejectModal(client, interaction, locales, settings, emojis, db)
+    await botApproveButton(client, interaction, locales, settings, emojis, db)
   } 
 })
 //--/ Bot Approve Button \--\\
