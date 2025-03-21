@@ -91,7 +91,7 @@ module.exports = {
          const alreadyChannel = new Discord.EmbedBuilder()
             .setColor("Red")
             .setAuthor({name: interaction.user.username, iconURL: interaction.user.avatarURL()}) 
-            .setDescription(`${emojis["cross"]} ${(locales[interaction.loacale] ?? locales[settings.defaultLang])["already-channel"].replace(/\{channel}/g, addChannel)}`)
+            .setDescription(`${emojis["cross"]} ${(locales[interaction.loacale] ?? locales[settings.defaultLang])["already-channel"].replace(/\{channel}/g, authorizedChannel)}`)
             .setFooter({text: client.user.username, iconURL: client.user.avatarURL()}) 
             .setTimestamp()
           return await interaction.followUp({embeds: [alreadyChannel]})
