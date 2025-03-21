@@ -167,7 +167,7 @@ async function botAddModal(client, interaction, locales, settings, emojis, db, f
       },
       {
         name: `${(locales[interaction.locale] ?? locales[settings.defaultLang])["bot-topgg"]}`,
-        value: `- \`${responseTopgg ? `${emojis["check"]}` : `${emojis["cross"]}`}\``
+        value: `- ${responseTopgg ? `${emojis["check"]}` : `${emojis["cross"]}`}`
       },
       {
         name: `${(locales[interaction.locale] ?? locales[settings.defaultLang])["bot-queue"]}`,
@@ -213,7 +213,7 @@ async function botAddModal(client, interaction, locales, settings, emojis, db, f
       },
       {
         name: `${(locales[interaction.locale] ?? locales[settings.defaultLang])["bot-topgg"]}`,
-        value: `- \`${responseTopgg.ok ? `${emojis["check"]}` : `${emojis["cross"]}`}\``
+        value: `- ${responseTopgg ? `${emojis["check"]}` : `${emojis["cross"]}`}`
       },
       {
         name: `${(locales[interaction.locale] ?? locales[settings.defaultLang])["bot-queue"]}`,
@@ -380,7 +380,6 @@ async function botApproveButton(client, interaction, locales, settings, emojis, 
   const authorizedRole = db.fetch(`${interaction.guild.id}.authorizedRole`)
   const botlistSystem = db.fetch(`${interaction.guild.id}.botlistSystem`)
   const dmFollow = db.fetch(`${interaction.guild.id}.dmFollow`)
-  const reason = interaction.fields.getTextInputValue("reason")
   const botId = interaction.message.embeds[0].fields[1].value.replace(/\\?`/g, "").replace("- ", "").trim()
   const bot =  db.fetch(`${interaction.guild.id}.${botId}`)
   const botRole = db.fetch(`${interaction.guild.id}.botRole`)
