@@ -1,5 +1,6 @@
 {
   "owners": [""],
   "botId": "",
-  "token": ""
+  "token": "",
+  "defaultLang": "tr"
 }
