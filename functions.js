@@ -491,14 +491,14 @@ async function botApproveButton(client, interaction, locales, settings, emojis, 
         })
       .setFooter({text: client.user.username, iconURL: client.user.avatarURL()}) 
       .setTimestamp()
-    await client.channels.cache.get(logChannel).send({content: `${(locales[owner.lang] ?? locales[settings.defaultLang])["bot-rejected"].replace(/\{user}/g, bot.owner)}`, embeds: [botApprovedMessage]})
+    await client.channels.cache.get(logChannel).send({content: `${(locales[owner.lang] ?? locales[settings.defaultLang])["bot-approved"].replace(/\{user}/g, bot.owner)}`, embeds: [botApprovedMessage]})
   
     if(dmFollow) {
     
       const botApprovedDm = new Discord.EmbedBuilder()
         .setColor("Green")
         .setAuthor({name: interaction.user.username, iconURL: interaction.user.avatarURL()}) 
-        .setDescription(`${emojis["cross"]} ${(locales[interaction.locale] ?? locales[settings.defaultLang])["bot-approved-dm"].replace(/\{guild}/g, interaction.guild.name).replace(/\{reason}/g, reason)}`)
+        .setDescription(`${emojis["cross"]} ${(locales[interaction.locale] ?? locales[settings.defaultLang])["bot-approved-dm"].replace(/\{guild}/g, interaction.guild.name)}`)
         .setFooter({text: client.user.username, iconURL: client.user.avatarURL()}) 
         .setTimestamp()
       await owner.send({embeds: [botApprovedDm]})
