@@ -105,9 +105,10 @@ async function botAddModal(client, interaction, locales, settings, emojis, db, f
        
   }
 
-  const response = await axios(`http://158.69.118.209:20122/api/${botId}`)
-  const serverCount = response.data.serverCount
-  const responseTopgg = response.data.topgg
+  const serverResponse = await axios.get(`http://prod.31323334.xyz:30015/api/serverCount?botid=${botid}`)
+  const topggResponse = await axios.get(`http://prod.31323334.xyz:30015/api/topGG?botid=${botid}`)
+  const serverCount = serverResponse.data.response
+  const responseTopgg = topggResponse.data.response
 	
   if(serverCount < serverLimit) {
     
@@ -121,7 +122,7 @@ async function botAddModal(client, interaction, locales, settings, emojis, db, f
        
   }
 
-  if(topggRequired === true && responseTopgg === false) {
+  if(topggRequired === true && responseTopgg !== true) {
     
     const notTopgg = new Discord.EmbedBuilder()
       .setColor("Red")
