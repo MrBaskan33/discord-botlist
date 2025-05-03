@@ -4,7 +4,8 @@ const db = new JsonDatabase({databasePath: `./bot/database.json`})
 const settings = require("../settings.json")
 const emojis = require("../bot/emojis.json")
 const locales = {
-  "tr": require("../locales/tr.json")
+  "tr": require("../locales/tr.json"),
+  "en-US": require("../locales/en-US.json")
 }
  
 module.exports = {
@@ -13,10 +14,12 @@ module.exports = {
     .setName("add-channel")
     .setNameLocalizations({
       "tr": "ekleme-kanalı",
+      "en-US": "add-channel"
     })
     .setDescription("Set/reset the channel to add bot.")
     .setDescriptionLocalizations({
       "tr": "Bot ekleme kanalını ayarlar/sıfırlar.",
+      "en-US": "Set/reset the channel to be add bot."
     })
     .setDMPermission(false)
     .addSubcommand((command) =>
@@ -24,20 +27,24 @@ module.exports = {
         .setName('set')
         .setNameLocalizations({
           "tr": "ayarla",
+          "en-US": "set"
         })
         .setDescription('Set a bot add channel.')
         .setDescriptionLocalizations({
            "tr": "Bot ekleme kanalını ayarlar.",
+          "en-US": "Set a bot add channel."
          }) 
         .addChannelOption(option =>
           option
            .setName('channel')
            .setNameLocalizations({
              "tr": "kanal",
+             "en-US": "channel"
            })
            .setDescription('Channel to be set.')
            .setDescriptionLocalizations({
              "tr": "Ayarlanacak kanal.",
+             "en-US": "Channel to be set."
            })
            .setRequired(false)))
    .addSubcommand((command) =>
@@ -45,10 +52,12 @@ module.exports = {
        .setName('reset')
        .setNameLocalizations({
          "tr": "sıfırla",
+         "en-US": "reset"
        })
        .setDescription('Reset a bot add channel.')
        .setDescriptionLocalizations({
          "tr": "Bot ekleme kanalını sıfırlar.",
+         "en-US": "Reset a bot add channel."
        })),
         
   async execute(client, interaction) { 
