@@ -13,51 +13,43 @@ module.exports = {
   data: new Discord.SlashCommandBuilder()    
     .setName("add-channel")
     .setNameLocalizations({
-      "tr": "ekleme-kanalı",
-      "en-US": "add-channel"
+      "tr": "ekleme-kanalı"
     })
     .setDescription("Set/reset the channel to add bot.")
     .setDescriptionLocalizations({
-      "tr": "Bot ekleme kanalını ayarlar/sıfırlar.",
-      "en-US": "Set/reset the channel to be add bot."
+      "tr": "Bot ekleme kanalını ayarlar/sıfırlar."
     })
     .setDMPermission(false)
     .addSubcommand((command) =>
       command
         .setName('set')
         .setNameLocalizations({
-          "tr": "ayarla",
-          "en-US": "set"
+          "tr": "ayarla"
         })
         .setDescription('Set a bot add channel.')
         .setDescriptionLocalizations({
-           "tr": "Bot ekleme kanalını ayarlar.",
-          "en-US": "Set a bot add channel."
+           "tr": "Bot ekleme kanalını ayarlar."
          }) 
         .addChannelOption(option =>
           option
            .setName('channel')
            .setNameLocalizations({
-             "tr": "kanal",
-             "en-US": "channel"
+             "tr": "kanal"
            })
            .setDescription('Channel to be set.')
            .setDescriptionLocalizations({
-             "tr": "Ayarlanacak kanal.",
-             "en-US": "Channel to be set."
+             "tr": "Ayarlanacak kanal."
            })
            .setRequired(false)))
    .addSubcommand((command) =>
      command
        .setName('reset')
        .setNameLocalizations({
-         "tr": "sıfırla",
-         "en-US": "reset"
+         "tr": "sıfırla"
        })
        .setDescription('Reset a bot add channel.')
        .setDescriptionLocalizations({
-         "tr": "Bot ekleme kanalını sıfırlar.",
-         "en-US": "Reset a bot add channel."
+         "tr": "Bot ekleme kanalını sıfırlar."
        })),
         
   async execute(client, interaction) { 
