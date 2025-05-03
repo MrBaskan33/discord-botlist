@@ -4,8 +4,7 @@ const db = new JsonDatabase({databasePath: `./bot/database.json`})
 const settings = require("../settings.json")
 const emojis = require("../bot/emojis.json")
 const locales = {
-  "tr": require("../locales/tr.json"),
-  "en-US": require("../locales/en-US.json")
+  "tr": require("../locales/tr.json")
 }
  
 module.exports = {
